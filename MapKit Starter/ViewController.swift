@@ -16,6 +16,21 @@ class ViewController: UIViewController {
     
     
     override func viewDidLoad() {
+        requestLocationAccess()
+        mapView?.showsUserLocation = true
+    }
+    
+    func requestLocationAccess() {
+        let status = CLLocationManager.authorizationStatus()
+        
+        switch status {
+            case .authorizedAlways, .authorizedWhenInUse:
+                return
+            case .denied, .restricted:
+                print("location access denied")
+            default:
+                locationManager.requestWhenInUseAuthorization()
+        }
     }
     
 }
