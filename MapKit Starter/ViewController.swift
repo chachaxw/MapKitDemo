@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         requestLocationAccess()
+        addAnnotations()
     }
     
     func requestLocationAccess() {

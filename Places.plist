@@ -4,33 +4,23 @@
 <array>
 	<dict>
 		<key>title</key>
-		<string>New York</string>
+		<string>随州</string>
 		<key>description</key>
-		<string>Welcome to New York City!</string>
+		<string>欢迎来到随州</string>
 		<key>latitude</key>
-		<real>40.7128</real>
+		<integer>113</integer>
 		<key>longitude</key>
-		<real>-74.0059</real>
+		<integer>31</integer>
 	</dict>
 	<dict>
 		<key>title</key>
-		<string>San Francisco</string>
+		<string>武汉</string>
 		<key>description</key>
-		<string>Welcome to San Francisco!</string>
+		<string>欢迎来到武汉</string>
 		<key>latitude</key>
-		<real>37.7749</real>
+		<integer>114</integer>
 		<key>longitude</key>
-		<real>-122.4194</real>
-	</dict>
-	<dict>
-		<key>title</key>
-		<string>Los Angeles</string>
-		<key>description</key>
-		<string>Welcome to Los Angeles!</string>
-		<key>latitude</key>
-		<real>34.0522</real>
-		<key>longitude</key>
-		<real>-118.2437</real>
+		<integer>30</integer>
 	</dict>
 </array>
 </plist>

@@ -38,6 +38,4 @@ import MapKit
     }
 }
 
-extension Place: MKAnnotation {
-    
-}
+extension Place: MKAnnotation {}
