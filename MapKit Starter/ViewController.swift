@@ -14,10 +14,10 @@ class ViewController: UIViewController {
     
     let locationManager = CLLocationManager()
     
+    let places = Place.getPlaces()
     
     override func viewDidLoad() {
         requestLocationAccess()
-        mapView?.showsUserLocation = true
     }
     
     func requestLocationAccess() {
@@ -33,5 +33,36 @@ class ViewController: UIViewController {
         }
     }
     
+    func addAnnotations() {
+        mapView?.delegate = self
+        mapView?.addAnnotations(places)
+        
+        let overlays = places.map {
+            MKCircle(center: $0.coordinate, radius: 100)
+        }
+        mapView?.addOverlays(overlays)
+    }
+    
+}
+
+extension ViewController: MKMapViewDelegate {
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKUserLocation {
+            return nil
+        } else {
+            let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "annotationView") ?? MKAnnotationView()
+            annotationView.image = UIImage(named: "place icon")
+            return annotationView
+        }
+    }
+    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        let renderer = MKCircleRenderer(overlay: overlay)
+        renderer.fillColor = UIColor.black.withAlphaComponent(0.3)
+        renderer.strokeColor = UIColor.blue
+        renderer.lineWidth = 2
+        return renderer
+    }
 }
 

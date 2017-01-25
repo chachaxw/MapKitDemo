@@ -37,3 +37,7 @@ import MapKit
         return places as [Place]
     }
 }
+
+extension Place: MKAnnotation {
+    
+}
